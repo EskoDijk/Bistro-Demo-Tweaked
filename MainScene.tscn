@@ -1,4 +1,4 @@
-[gd_scene load_steps=286 format=3 uid="uid://dcgtpj2gjbxgl"]
+[gd_scene load_steps=288 format=3 uid="uid://dcgtpj2gjbxgl"]
 
 [ext_resource type="PackedScene" uid="uid://x65cq1udsqsf" path="res://Scenes/Section01/S1B1.tscn" id="1_17a2u"]
 [ext_resource type="PackedScene" uid="uid://eo1atg6pdllw" path="res://Scenes/Section01/S1B2.tscn" id="2_8mtnr"]
@@ -83,6 +83,8 @@
 [ext_resource type="PackedScene" uid="uid://dph2jwqw0jaw" path="res://Scenes/FoliageSound.tscn" id="76_oe8ap"]
 [ext_resource type="AudioStream" uid="uid://bn5hg5d1ypbxh" path="res://Audio/Prop Sounds/Wood/Bump3_Wood.wav" id="77_xftyf"]
 [ext_resource type="AudioStream" uid="uid://qi7xfi47dn6t" path="res://Audio/Prop Sounds/Wood/Scrape_Wood.wav" id="78_uqm4d"]
+[ext_resource type="Script" path="res://addons/otns_client/otns_client.gd" id="otns_client"]
+[ext_resource type="Script" path="res://addons/otns_client/otns_luminaires.gd" id="otns_luminaires"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_u4h6w"]
 lightmap_size_hint = Vector2i(644, 462)
@@ -3462,3 +3464,13 @@ spot_angle = 80.0
 transform = Transform3D(0.941434, 0, 0.337193, 0, 1, 0, -0.337193, 0, 0.941434, -3.03466, 0, 5.09017)
 enable_depth_of_field = true
 enable_audio = true
+
+[node name="OtnsClient" type="Node" parent="."]
+script = ExtResource("otns_client")
+host = "127.0.0.1"
+port = 8998
+
+[node name="OtnsLuminaires" type="Node" parent="."]
+script = ExtResource("otns_luminaires")
+mapping_file = "res://otns/bistro-lights.json"
+scene_root = NodePath("..")

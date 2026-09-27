@@ -22,3 +22,8 @@ Build/Mac/*
 !Build/Mac/.gitkeep
 Build/Linux/*
 !Build/Linux/.gitkeep
+
+# IDEs and Agents
+.idea/
+.claude/
+
